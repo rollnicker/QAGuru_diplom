@@ -1,0 +1,7 @@
+pytest
+requests
+selene==2.0.0rc7
+curlify
+allure-pytest
+jsonschema
+python-dotenv==1.0.1
