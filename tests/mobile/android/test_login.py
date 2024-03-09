@@ -6,6 +6,11 @@ from selene import browser, have
 
 
 def test_login(android_mobile_management):
+    with step('закрыть выбор языка'):
+        if browser.element('ru.litres.android:id/choosebutton').should(be.existing):
+            browser.element('ru.litres.android:id/choosebutton').click()
+        else:
+            pass
     with step('закрыть крестик'):
         browser.element((AppiumBy.ID, 'ru.litres.android:id/circleButtonSubscriptionPaywallClose')).click()
     with step('Перейти в раздел профиль'):

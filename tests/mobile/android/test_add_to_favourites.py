@@ -1,9 +1,14 @@
 from allure_commons._allure import step
 from appium.webdriver.common.appiumby import AppiumBy
-from selene import browser, have
+from selene import browser, have, be
 
 
 def test_add_book_to_favourites(android_mobile_management):
+    with step('закрыть выбор языка'):
+        if browser.element('ru.litres.android:id/choosebutton').should(be.existing):
+            browser.element('ru.litres.android:id/choosebutton').click()
+        else:
+            pass
     with step('закрыть крестик'):
         browser.element((AppiumBy.ID, 'ru.litres.android:id/circleButtonSubscriptionPaywallClose')).click()
     with step('открыть поиск'):
