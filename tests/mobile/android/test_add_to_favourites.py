@@ -1,8 +1,12 @@
+import allure
 from allure_commons._allure import step
 from appium.webdriver.common.appiumby import AppiumBy
 from selene import browser, have, be
 
 
+@allure.epic('Favourites')
+@allure.tag('mobile', 'positive')
+@allure.title('Добавление книги в избранное')
 def test_add_book_to_favourites(android_mobile_management):
     with step('закрыть выбор языка'):
         if browser.element((AppiumBy.ID, 'ru.litres.android:id/choosebutton')).should(be.existing):

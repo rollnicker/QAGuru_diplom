@@ -1,8 +1,11 @@
+import allure
 from allure_commons._allure import step
 
 from QAGuru_litres.web.application import app
 
-
+@allure.epic('Search')
+@allure.tag('web', 'positive')
+@allure.title('Поиск книги')
 def test_search_book(setup_browser):
     with step('Ввести название в окно поиска'):
         app.header_panel.search_book('Мастер и маргарита')
@@ -14,6 +17,9 @@ def test_search_book(setup_browser):
         app.item_page.check_book_title('Мастер и Маргарита')
 
 
+@allure.epic('Search')
+@allure.tag('web', 'negative')
+@allure.title('Поиск книги с неправильным названием')
 def test_wrong_search(setup_browser):
     with step("Открыть форму логина"):
         app.header_panel.search_book('dgfsergsvers')

@@ -4,6 +4,8 @@ from jsonschema import validate
 from QAGuru_litres.utils.logging import get_litress
 from QAGuru_litres.utils.open_schemas import load_schema
 
+@allure.epic('Search')
+@allure.tag('api', 'positive')
 @allure.title("Проверка поиска книги")
 def test_check_search_book():
     book_title = 'мастер и маргарита'
@@ -15,6 +17,8 @@ def test_check_search_book():
     body2 = response.json()
     assert book_title in (body2['payload']['data'][0]['text'])
 
+@allure.epic('Search')
+@allure.tag('api', 'negative')
 @allure.title("Поиск книги по неправильному названию")
 def test_check_invalid_search():
     wrong_title = 'qwdcvfbetbevsef'

@@ -18,6 +18,8 @@ wrong_login = "superverymega228kek@mail.ru"
 wrong_password = '123qwe'
 
 
+@allure.epic('Login')
+@allure.tag('api', 'positive')
 @allure.title("Проверка авторизации")
 def test_succesfull_autorisation():
     response = post_litress(AUTH_URL,
@@ -29,6 +31,8 @@ def test_succesfull_autorisation():
     assert response.status_code == 200
 
 
+@allure.epic('Login')
+@allure.tag('api', 'positive')
 @allure.title("Авторизация с неправильными данными")
 def test_unsuccesfull_autorisation():
     response = post_litress(AUTH_URL,
@@ -37,6 +41,8 @@ def test_unsuccesfull_autorisation():
     assert response.status_code == 401
 
 
+@allure.epic('Login')
+@allure.tag('api', 'negative')
 @allure.title("Проверка что логин не доступен для регистрации")
 def test_not_available_login_for_registration():
     response = post_litress(LOGIN_AVAILABLE_URL,
@@ -45,6 +51,8 @@ def test_not_available_login_for_registration():
     assert not (response.json()['payload']['data']['available'])
 
 
+@allure.epic('Login')
+@allure.tag('api', 'positive')
 @allure.title("Проверка что логин доступен для регистрации")
 def test_available_login_for_registration():
     response = post_litress(url=LOGIN_AVAILABLE_URL,

@@ -1,10 +1,14 @@
 import os
 
+import allure
 from allure_commons._allure import step
 from appium.webdriver.common.appiumby import AppiumBy
 from selene import browser, have, be
 
 
+@allure.epic('Login')
+@allure.tag('mobile', 'positive')
+@allure.title('Авторизация в приложении')
 def test_login(android_mobile_management):
     with step('закрыть выбор языка'):
         if browser.element((AppiumBy.ID, 'ru.litres.android:id/dialog_close_btn')).should(be.existing):

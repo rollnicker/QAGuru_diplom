@@ -9,6 +9,8 @@ ADD_TO_CART_URL = "/cart/arts/add"
 CART_URL = '/cart/status'
 
 
+@allure.epic('Cart')
+@allure.tag('api', 'positive')
 @allure.title("Проверка добавления в корзину")
 def test_add_to_cart():
     response = put_litress(ADD_TO_CART_URL,
@@ -20,6 +22,8 @@ def test_add_to_cart():
              schema=load_schema("add_to_cart_schema.json"))
     assert response.status_code == 200
 
+@allure.epic('Cart')
+@allure.tag('api', 'positive')
 @allure.title("Проверка открытия корзины")
 def test_check_cart_schema():
     response = get_litress(CART_URL,
@@ -30,7 +34,8 @@ def test_check_cart_schema():
              schema=load_schema("cart_status_schema.json"))
     assert response.status_code == 200
 
-
+@allure.epic('Cart')
+@allure.tag('api', 'positive')
 @allure.title("Проверка добавления в корзину нескольких книг ")
 def test_add_two_books_to_cart():
     with step("add to cart 1 book"):
@@ -49,6 +54,8 @@ def test_add_two_books_to_cart():
         assert response2.json()['payload']['data']['added_art_ids'] == [70400188, 63353991]
 
 
+@allure.epic('Cart')
+@allure.tag('api', 'positive')
 @allure.title("Проверка отображения в корзине добавленной книги")
 def test_check_book_in_cart():
     with step("add to cart 1 book"):

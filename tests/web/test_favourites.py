@@ -1,8 +1,11 @@
+import allure
 from allure_commons._allure import step
 
 from QAGuru_litres.web.application import app
 
-
+@allure.epic('Favourites')
+@allure.tag('web', 'positive')
+@allure.title('Добавление книги в избранное')
 def test_add_to_favourites(setup_browser):
     with step('Открыть категорию каталога'):
         app.header_panel.open_catalog_category("Легкое чтение")
@@ -22,7 +25,9 @@ def test_add_to_favourites(setup_browser):
     with step('Проверить что отложенная книга отображается в списке'):
         app.favourite_page.check_first_liked_book_title('Туман. Полное издание')
 
-
+@allure.epic('Favourites')
+@allure.tag('web', 'positive')
+@allure.title('Удалить книгу из избранного')
 def test_delete_from_favourites(setup_browser):
     with step('Открыть категорию каталога'):
         app.header_panel.open_catalog_category("Легкое чтение")

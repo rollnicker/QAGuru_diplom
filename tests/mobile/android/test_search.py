@@ -1,8 +1,11 @@
+import allure
 from allure_commons._allure import step
 from appium.webdriver.common.appiumby import AppiumBy
 from selene import browser, have, be
 
-
+@allure.epic('Search')
+@allure.tag('mobile', 'positive')
+@allure.title('Поиск книги по названию')
 def test_search_book(android_mobile_management):
     with step('закрыть выбор языка'):
         browser.element((AppiumBy.ID, 'ru.litres.android:id/choosebutton')).click()

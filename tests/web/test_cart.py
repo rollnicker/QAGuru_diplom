@@ -1,8 +1,12 @@
+import allure
 from allure_commons._allure import step
 
 from QAGuru_litres.web.application import app
 
 
+@allure.epic('Cart')
+@allure.tag('web', 'positive')
+@allure.title('Добавить в корзину')
 def test_add_to_cart(setup_browser):
     with step('Открыть категорию каталога'):
         app.header_panel.open_catalog_category("Легкое чтение")
@@ -23,6 +27,9 @@ def test_add_to_cart(setup_browser):
         app.cart_page.check_title('Туман. Полное издание')
 
 
+@allure.epic('Cart')
+@allure.tag('web', 'positive')
+@allure.title('Удалить из корзины')
 def test_delete_item_from_cart(setup_browser):
     with step('Открыть категорию каталога'):
         app.header_panel.open_catalog_category("Легкое чтение")

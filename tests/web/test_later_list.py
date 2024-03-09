@@ -1,8 +1,12 @@
+import allure
 from allure_commons._allure import step
 
 from QAGuru_litres.web.application import app
 
 
+@allure.epic('Favourites')
+@allure.tag('web', 'positive')
+@allure.title('Добавление книги в отложенные, после удаления из корзины')
 def test_add_to_favourite_from_delete_window(setup_browser):
     with step('Открыть категорию каталога'):
         app.header_panel.open_catalog_category("Легкое чтение")
@@ -24,6 +28,9 @@ def test_add_to_favourite_from_delete_window(setup_browser):
 
     with step('Добавить в отложенные'):
         app.cart_page.add_to_later_list()
+
+    with step('Проверить что счетчик корзины пустой'):
+        app.header_panel.check_count_is_empty()
 
     with step('Открыть отложенные'):
         app.header_panel.open_liked_books()
