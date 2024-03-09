@@ -5,7 +5,10 @@ from selene import browser, have, be
 
 def test_add_book_to_favourites(android_mobile_management):
     with step('закрыть выбор языка'):
-        browser.element('ru.litres.android:id/choosebutton').click()
+        if browser.element((AppiumBy.ID, 'ru.litres.android:id/choosebutton')).should(be.existing):
+            browser.element((AppiumBy.ID, 'ru.litres.android:id/choosebutton')).click()
+        else:
+            pass
     with step('закрыть крестик'):
         browser.element((AppiumBy.ID, 'ru.litres.android:id/circleButtonSubscriptionPaywallClose')).click()
     with step('открыть поиск'):
