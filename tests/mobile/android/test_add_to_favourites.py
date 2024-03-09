@@ -14,11 +14,6 @@ def test_add_book_to_favourites(android_mobile_management):
             browser.element((AppiumBy.ID, 'ru.litres.android:id/btnEnableAdultContent')).click()
         else:
             pass
-    with step('закрыть крестик'):
-        if browser.element((AppiumBy.ID, 'ru.litres.android:id/circleButtonSubscriptionPaywallClose')).should(be.existing):
-            browser.element((AppiumBy.ID, 'ru.litres.android:id/circleButtonSubscriptionPaywallClose')).click()
-        else:
-            pass
     with step('открыть поиск'):
         browser.element((AppiumBy.ID, 'ru.litres.android:id/search')).click()
     with step('ввести слово в поиск'):

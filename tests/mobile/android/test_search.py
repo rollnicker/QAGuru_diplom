@@ -8,8 +8,8 @@ def test_search_book(android_mobile_management):
         browser.element((AppiumBy.ID, 'ru.litres.android:id/choosebutton')).click()
     with step('закрыть всплывающее окно выбора эротики'):
         browser.element((AppiumBy.ID, 'ru.litres.android:id/btnEnableAdultContent')).click()
-    with step('закрыть крестик'):
-        browser.element((AppiumBy.ID, 'ru.litres.android:id/circleButtonSubscriptionPaywallClose')).click()
+    # with step('закрыть крестик'):
+    #     browser.element((AppiumBy.ID, 'ru.litres.android:id/circleButtonSubscriptionPaywallClose')).click()
     with step('открыть поиск'):
         browser.element((AppiumBy.ID, 'ru.litres.android:id/search')).click()
     with step('ввести слово в поиск'):
