@@ -120,7 +120,7 @@ celerybeat.pid
 *.sage.py
 
 # Environments
-.env
+.env.credentials
 .venv
 env/
 venv/
@@ -164,3 +164,5 @@ cython_debug/
 
 /tests/allure-results/
 /tests/api/allure-results/
+/tests/mobile/android/allure-results/
+/tests/web/allure-results/

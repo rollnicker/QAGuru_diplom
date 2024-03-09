@@ -1,8 +1,8 @@
 import allure
 from jsonschema import validate
 
-from utils.logging import get_litress
-from utils.open_schemas import load_schema
+from QAGuru_litres.utils.logging import get_litress
+from QAGuru_litres.utils.open_schemas import load_schema
 
 @allure.title("Проверка поиска книги")
 def test_check_search_book():

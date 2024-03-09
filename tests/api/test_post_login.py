@@ -1,14 +1,14 @@
 import os
 
 import allure
-import requests
 from dotenv import load_dotenv
 from jsonschema import validate
 
-from utils.logging import post_litress
-from utils.open_schemas import load_schema
+from QAGuru_litres import utils
+from QAGuru_litres.utils.logging import post_litress
+from QAGuru_litres.utils.open_schemas import load_schema
 
-load_dotenv()
+load_dotenv(dotenv_path=utils.file.abs_path_from_project('.env.credentials'))
 login: str = os.getenv("USER_LOGIN")
 password: str = os.getenv("USER_PASSWORD")
 
@@ -39,17 +39,17 @@ def test_unsuccesfull_autorisation():
 
 @allure.title("Проверка что логин не доступен для регистрации")
 def test_not_available_login_for_registration():
-    response = requests.post(LOGIN_AVAILABLE_URL,
-                             headers={"Content-Type": "application/json"},
-                             json={"login": login})
+    response = post_litress(LOGIN_AVAILABLE_URL,
+                            headers={"Content-Type": "application/json"},
+                            json={"login": login})
     assert not (response.json()['payload']['data']['available'])
 
 
 @allure.title("Проверка что логин доступен для регистрации")
 def test_available_login_for_registration():
-    response = requests.post(LOGIN_AVAILABLE_URL,
-                             headers={"Content-Type": "application/json"},
-                             json={"login": wrong_login})
+    response = post_litress(url=LOGIN_AVAILABLE_URL,
+                            headers={"Content-Type": "application/json"},
+                            json={"login": wrong_login})
     body = response.json()
     validate(body,
              schema=load_schema("login_available_schema.json"))
