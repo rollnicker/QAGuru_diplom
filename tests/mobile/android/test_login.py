@@ -11,6 +11,11 @@ def test_login(android_mobile_management):
             browser.element((AppiumBy.ID, 'ru.litres.android:id/dialog_close_btn')).click()
         else:
             pass
+    with step('закрыть всплывающее окно выбора эротики'):
+        if browser.element((AppiumBy.ID, 'ru.litres.android:id/btnEnableAdultContent')).should(be.existing):
+            browser.element((AppiumBy.ID, 'ru.litres.android:id/btnEnableAdultContent')).click()
+        else:
+            pass
     with step('закрыть крестик'):
         browser.element((AppiumBy.ID, 'ru.litres.android:id/circleButtonSubscriptionPaywallClose')).click()
     with step('Перейти в раздел профиль'):

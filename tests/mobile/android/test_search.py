@@ -6,6 +6,8 @@ from selene import browser, have, be
 def test_search_book(android_mobile_management):
     with step('закрыть выбор языка'):
         browser.element((AppiumBy.ID, 'ru.litres.android:id/choosebutton')).click()
+    with step('закрыть всплывающее окно выбора эротики'):
+        browser.element((AppiumBy.ID, 'ru.litres.android:id/btnEnableAdultContent')).click()
     with step('закрыть крестик'):
         browser.element((AppiumBy.ID, 'ru.litres.android:id/circleButtonSubscriptionPaywallClose')).click()
     with step('открыть поиск'):

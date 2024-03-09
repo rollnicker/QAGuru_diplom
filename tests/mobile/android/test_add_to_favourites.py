@@ -9,6 +9,11 @@ def test_add_book_to_favourites(android_mobile_management):
             browser.element((AppiumBy.ID, 'ru.litres.android:id/choosebutton')).click()
         else:
             pass
+    with step('закрыть всплывающее окно выбора эротики'):
+        if browser.element((AppiumBy.ID, 'ru.litres.android:id/btnEnableAdultContent')).should(be.existing):
+            browser.element((AppiumBy.ID, 'ru.litres.android:id/btnEnableAdultContent')).click()
+        else:
+            pass
     with step('закрыть крестик'):
         browser.element((AppiumBy.ID, 'ru.litres.android:id/circleButtonSubscriptionPaywallClose')).click()
     with step('открыть поиск'):
