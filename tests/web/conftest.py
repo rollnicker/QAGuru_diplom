@@ -55,6 +55,7 @@ def setup_browser(request):
     browser.config.window_width = 1400
     browser.config.timeout = 8.0
     browser.config.base_url = 'https://www.litres.ru/'
+    browser.open('')
 
     yield browser
 
