@@ -49,9 +49,9 @@ class Config(BaseModel):
             options.set_capability('autoGrantPermissions', self.autoGrantPermissions)
             options.set_capability(
                 'bstack:options', {
-                    'projectName': 'Wikipedia tests project',
-                    'buildName': 'Wikipedia-app-build',
-                    'sessionName': 'Wikipedia tests',
+                    'projectName': 'Litres tests project',
+                    'buildName': 'Litrs-app-build',
+                    'sessionName': 'Litres tests',
                     'userName': self.userName,
                     'accessKey': self.accessKey,
                 },
