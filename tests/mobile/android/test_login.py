@@ -16,11 +16,6 @@ def test_login(android_mobile_management):
             browser.element((AppiumBy.ID, 'ru.litres.android:id/btnEnableAdultContent')).click()
         else:
             pass
-    with step('закрыть крестик'):
-        if browser.element((AppiumBy.ID, 'ru.litres.android:id/circleButtonSubscriptionPaywallClose')).should(be.existing):
-            browser.element((AppiumBy.ID, 'ru.litres.android:id/circleButtonSubscriptionPaywallClose')).click()
-        else:
-            pass
     with step('Перейти в раздел профиль'):
         browser.element((AppiumBy.ID, 'ru.litres.android:id/ll_profile_menu_item')).click()
     with step('Нажать кнопку login'):
