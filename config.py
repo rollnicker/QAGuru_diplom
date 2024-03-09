@@ -50,7 +50,7 @@ class Config(BaseModel):
             options.set_capability(
                 'bstack:options', {
                     'projectName': 'Litres tests project',
-                    'buildName': 'Litrs-app-build',
+                    'buildName': 'Litres-app-build',
                     'sessionName': 'Litres tests',
                     'userName': self.userName,
                     'accessKey': self.accessKey,

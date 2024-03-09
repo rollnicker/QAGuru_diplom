@@ -7,8 +7,8 @@ from selene import browser, have, be
 
 def test_login(android_mobile_management):
     with step('закрыть выбор языка'):
-        if browser.element('ru.litres.android:id/choosebutton').should(be.existing):
-            browser.element('ru.litres.android:id/choosebutton').click()
+        if browser.element((AppiumBy.ID, 'ru.litres.android:id/dialog_close_btn')).should(be.existing):
+            browser.element((AppiumBy.ID, 'ru.litres.android:id/dialog_close_btn')).click()
         else:
             pass
     with step('закрыть крестик'):
