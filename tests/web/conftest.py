@@ -7,7 +7,7 @@ from selene import browser
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
-
+from QAGuru_litres import utils
 
 
 def pytest_addoption(parser):
@@ -59,10 +59,10 @@ def setup_browser(request):
 
     yield browser
 
-    attach.add_screenshot(browser)
-    attach.add_logs(browser)
-    attach.add_html(browser)
-    attach.add_video(browser)
+    utils.allure_attach.add_screenshot(browser)
+    utils.allure_attach.add_logs(browser)
+    utils.allure_attach.add_html(browser)
+    utils.allure_attach.add_video(browser)
 
     browser.quit()
 
