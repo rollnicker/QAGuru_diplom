@@ -4,7 +4,6 @@ import allure
 import allure_commons
 import pytest
 from appium import webdriver
-from appium.options.android import UiAutomator2Options
 from dotenv import load_dotenv
 from selene import browser, support
 
@@ -14,7 +13,7 @@ from QAGuru_litres import utils
 def pytest_addoption(parser):
     parser.addoption(
         "--context",
-        default="local_real_device",
+        default="bstack",
         help="Specify the test context"
     )
 
@@ -63,24 +62,3 @@ def android_mobile_management(context):
 
     if context == 'bstack':
         utils.allure_attach.bstack_video(session_id)
-
-
-@pytest.fixture()
-def real_management():
-    options = UiAutomator2Options().load_capabilities({
-        'platformName': 'Android',
-        'deviceName': 'Google Pixel 7',
-        'appWaitActivity': '*',
-        'app': '/Users/rollnick/Desktop/QAGuruProjects/QAGuru_litres/Litres_ Books_3.84.1.apk'
-    })
-
-    browser.config.driver = webdriver.Remote(
-        'http://127.0.0.1:4723/wd/hub',
-        options=options
-    )
-
-    yield
-
-
-    with allure.step('tear down app session'):
-        browser.quit()
