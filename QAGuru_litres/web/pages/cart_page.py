@@ -25,8 +25,6 @@ class CartPage:
         self.empty_cart_module.should(have.text(text))
 
 
-
-
 '''
 эти методы не работают, так не понял почему
         browser.all('[type="button"]').element_by(have.text('Перейти к покупке')).click()

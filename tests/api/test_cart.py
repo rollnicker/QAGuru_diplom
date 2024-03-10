@@ -22,6 +22,7 @@ def test_add_to_cart():
              schema=load_schema("add_to_cart_schema.json"))
     assert response.status_code == 200
 
+
 @allure.epic('Cart')
 @allure.tag('api', 'positive')
 @allure.title("Проверка открытия корзины")
@@ -33,6 +34,7 @@ def test_check_cart_schema():
     validate(body,
              schema=load_schema("cart_status_schema.json"))
     assert response.status_code == 200
+
 
 @allure.epic('Cart')
 @allure.tag('api', 'positive')

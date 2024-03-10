@@ -1,7 +1,6 @@
 import os
 
 import pytest
-from allure_commons._allure import attach
 from dotenv import load_dotenv
 from selene import browser
 from selenium import webdriver
@@ -63,27 +62,5 @@ def setup_browser(request):
     utils.allure_attach.add_logs(browser)
     utils.allure_attach.add_html(browser)
     utils.allure_attach.add_video(browser)
-
-    browser.quit()
-
-
-@pytest.fixture(scope='function')
-def real_browser():
-    browser.config.base_url = 'https://www.litres.ru/'
-    browser.config.window_height = 1920
-    browser.config.window_width = 1400
-    browser.config.timeout = 8.0
-    # driver_options = webdriver.ChromeOptions()
-    # driver_options.add_argument('--headless')
-    options = Options()
-    options.add_argument('--disable-gpu')
-    options.add_argument('--no-sandbox')
-    options.add_argument('--disable-setuid-sandbox')
-    options.add_argument('--disable-dev-shm-usage')
-    options.add_argument('--incognito')
-    # browser.config.driver_options = driver_options
-    browser.open('')
-
-    yield browser
 
     browser.quit()

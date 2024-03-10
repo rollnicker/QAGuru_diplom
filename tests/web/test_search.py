@@ -3,6 +3,7 @@ from allure_commons._allure import step
 
 from QAGuru_litres.web.application import app
 
+
 @allure.epic('Search')
 @allure.tag('web', 'positive')
 @allure.title('Поиск книги')

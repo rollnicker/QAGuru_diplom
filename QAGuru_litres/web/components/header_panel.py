@@ -11,7 +11,6 @@ class HeaderPanel:
         self.item_count = browser.all('[role="counter"].Counter-modules__counter_1oZcv')
         self.liked_books_button = browser.all('.Tab-modules__tab__title_nqb1J').element_by(have.text("Отложенные"))
 
-
     def click_login_button(self):
         self.login_button.click()
 

@@ -1,8 +1,7 @@
 import allure
 import requests
-
-from selene import browser
 from allure_commons.types import AttachmentType
+from selene import browser
 
 
 def bstack_video(session_id):

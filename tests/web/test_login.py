@@ -58,6 +58,7 @@ def test_login_is_available_for_registration(setup_browser):
     with (step("проверить что появилось сообщение 'данный email не зарегистрирован'")):
         app.login_window.check_free_email_message()
 
+
 @allure.epic('Login')
 @allure.tag('web', 'negative')
 @allure.title('Неуспешный логин: логин не найден')

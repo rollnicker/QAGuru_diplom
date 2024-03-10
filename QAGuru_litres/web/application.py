@@ -22,7 +22,6 @@ class Application:
         self.favourite_page = FavouritePage()
         self.cart_page = CartPage()
 
-
     def open_page(self):
         browser.open('')
         return self

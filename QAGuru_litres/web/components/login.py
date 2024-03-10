@@ -10,7 +10,6 @@ class LoginWindow:
         self.free_email_message = browser.element(
             '.AuthContent-module__emailRegistrationContainer__freeEmailMessage_3np-O')
 
-
     def fill_login(self, email):
         self.email_input.type(email)
         self.continue_button.click()
