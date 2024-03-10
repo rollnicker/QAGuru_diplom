@@ -1,38 +1,30 @@
 import allure
 from allure_commons._allure import step
-from appium.webdriver.common.appiumby import AppiumBy
-from selene import browser, have, be
+
+from QAGuru_litres.mobile.application import mob_app
 
 
 @allure.epic('Favourites')
 @allure.tag('mobile', 'positive')
 @allure.title('Добавление книги в избранное')
 def test_add_book_to_favourites(android_mobile_management):
-    with step('закрыть выбор языка'):
-        if browser.element((AppiumBy.ID, 'ru.litres.android:id/choosebutton')).should(be.existing):
-            browser.element((AppiumBy.ID, 'ru.litres.android:id/choosebutton')).click()
-        else:
-            pass
-    with step('закрыть всплывающее окно выбора эротики'):
-        if browser.element((AppiumBy.ID, 'ru.litres.android:id/btnEnableAdultContent')).should(be.existing):
-            browser.element((AppiumBy.ID, 'ru.litres.android:id/btnEnableAdultContent')).click()
-        else:
-            pass
-    with step('открыть поиск'):
-        browser.element((AppiumBy.ID, 'ru.litres.android:id/search')).click()
-    with step('ввести слово в поиск'):
-        browser.element((AppiumBy.CLASS_NAME, 'android.widget.EditText')).type('Мастер и маргарита')
-    with step('Выбрать текстовый элемент из списка'):
-        browser.all((AppiumBy.ID, 'ru.litres.android:id/textViewItemSearchSuggestText'))[0].click()
+    with step('Закрыть выбор языка'):
+        mob_app.main_page.choose_language()
+    with step('Закрыть всплывающее окно выбора эротики'):
+        mob_app.main_page.close_erotic_banner()
+    with step('Открыть страницу поиска'):
+        mob_app.main_page.open_search_page()
+    with step('Ввести название книги в поисковую строку'):
+        mob_app.search_page.search_book(name='Мастер и маргарита')
     with step('Добавить первую книгу в избранное'):
-        browser.all((AppiumBy.ID, 'ru.litres.android:id/imageViewFavorite'))[0].click()
+        mob_app.search_page.add_searched_book_to_favourites()
     with step('Открыть первую книгу'):
-        browser.all((AppiumBy.ID, 'ru.litres.android:id/clArtLayout'))[0].click()
+        mob_app.search_page.open_searched_book()
     with step('Открыть вкладку избранное'):
-        browser.element((AppiumBy.ID, 'ru.litres.android:id/nav_my_audiobooks')).click()
+        mob_app.main_page.open_favourites()
     with step('Закрыть всплывающее окно'):
-        browser.element((AppiumBy.ID, 'ru.litres.android:id/btnMyBooksOnboardingClose')).click()
+        mob_app.favourites_page.close_banner()
     with step('Выбрать раздел избранное'):
-        browser.all((AppiumBy.ID, 'ru.litres.android:id/textViewBookSectionTitle'))[0].click()
+        mob_app.favourites_page.open_favorites_books()
     with step('Проверить название выбранной книги присутствует в избранном поиску'):
-        browser.all((AppiumBy.ID, 'ru.litres.android:id/textViewBookName'))[0].should(have.text("Мастер и Маргарита"))
+        mob_app.favourites_page.check_favorite_book_title(title="Мастер и Маргарита")

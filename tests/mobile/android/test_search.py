@@ -1,28 +1,29 @@
 import allure
 from allure_commons._allure import step
-from appium.webdriver.common.appiumby import AppiumBy
-from selene import browser, have
+
+from QAGuru_litres.mobile.application import mob_app
 
 
 @allure.epic('Search')
 @allure.tag('mobile', 'positive')
 @allure.title('Поиск книги по названию')
 def test_search_book(android_mobile_management):
-    with step('закрыть выбор языка'):
-        browser.element((AppiumBy.ID, 'ru.litres.android:id/choosebutton')).click()
-    with step('закрыть всплывающее окно выбора эротики'):
-        browser.element((AppiumBy.ID, 'ru.litres.android:id/btnEnableAdultContent')).click()
-    with step('открыть поиск'):
-        browser.element((AppiumBy.ID, 'ru.litres.android:id/search')).click()
-    with step('ввести слово в поиск'):
-        browser.element((AppiumBy.CLASS_NAME, 'android.widget.EditText')).type('Мастер и маргарита')
-    with step('Выбрать элемент из списка'):
-        browser.all((AppiumBy.ID, 'ru.litres.android:id/textViewItemSearchSuggestText'))[0].click()
-    with step('Выбрать вариант из предложенного списка'):
-        browser.all((AppiumBy.ID, 'ru.litres.android:id/clArtLayout'))[0].click()
-    with step('Проверить название выбранной книги соответствует поиску'):
-        browser.element((AppiumBy.ID, 'ru.litres.android:id/tvBookTitle')
-                        ).should(have.text("Мастер и Маргарита"))
+    with step('Закрыть выбор языка'):
+        mob_app.main_page.choose_language()
+    with step('Закрыть всплывающее окно выбора эротики'):
+        mob_app.main_page.close_erotic_banner()
+    with step('Открыть страницу поиска'):
+        mob_app.main_page.open_search_page()
+    with step('Ввести название книги в поисковую строку'):
+        mob_app.search_page.search_book(name='Мастер и маргарита')
+    with step('Выбрать первую книгу из результатов поиска'):
+        mob_app.search_page.open_searched_book()
+    with step('Проверить, что название выбранной книги соответствует поиску'):
+        mob_app.item_page.check_book_title(title='Мастер и Маргарита')
 
-    # with step('закрыть крестик'):
-    #     browser.element((AppiumBy.ID, 'ru.litres.android:id/circleButtonSubscriptionPaywallClose')).click()
+
+'''
+Во время локального запуска, добавить этот шаг в самое начало теста
+    with step('закрыть крестик'):
+        browser.element((AppiumBy.ID, 'ru.litres.android:id/circleButtonSubscriptionPaywallClose')).click()
+'''
