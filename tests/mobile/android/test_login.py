@@ -2,8 +2,8 @@ import os
 
 import allure
 from allure_commons._allure import step
-from appium.webdriver.common.appiumby import AppiumBy
-from selene import browser, have, be
+
+from QAGuru_litres.mobile.application import mob_app
 
 
 @allure.epic('Login')
@@ -11,24 +11,16 @@ from selene import browser, have, be
 @allure.title('Авторизация в приложении')
 def test_login(android_mobile_management):
     with step('закрыть выбор языка'):
-        if browser.element((AppiumBy.ID, 'ru.litres.android:id/dialog_close_btn')).should(be.existing):
-            browser.element((AppiumBy.ID, 'ru.litres.android:id/dialog_close_btn')).click()
-        else:
-            pass
+        mob_app.main_page.choose_language()
     with step('закрыть всплывающее окно выбора эротики'):
-        if browser.element((AppiumBy.ID, 'ru.litres.android:id/btnEnableAdultContent')).should(be.existing):
-            browser.element((AppiumBy.ID, 'ru.litres.android:id/btnEnableAdultContent')).click()
-        else:
-            pass
+        mob_app.main_page.close_erotic_banner()
     with step('Перейти в раздел профиль'):
-        browser.element((AppiumBy.ID, 'ru.litres.android:id/ll_profile_menu_item')).click()
+        mob_app.main_page.open_profile_page()
     with step('Нажать кнопку login'):
-        browser.element((AppiumBy.ID, 'ru.litres.android:id/login_button')).click()
-    with step('Ввести mail'):
-        browser.element((AppiumBy.ID, 'ru.litres.android:id/loginEditText')).type(f'{os.getenv("USER_LOGIN")}')
-        browser.element((AppiumBy.ID, 'ru.litres.android:id/continueButton')).click()
+        mob_app.profile_page.open_login()
+    with step('Ввести email'):
+        mob_app.profile_page.enter_email(email=f'{os.getenv("USER_LOGIN")}')
     with step('Ввести пароль'):
-        browser.element((AppiumBy.ID, 'ru.litres.android:id/passwordEditText')).type(f'{os.getenv("USER_PASSWORD")}')
-        browser.element((AppiumBy.ID, 'ru.litres.android:id/continueButton')).click()
+        mob_app.profile_page.enter_password(password=f'{os.getenv("USER_PASSWORD")}')
     with step('Проверить успешный логин'):
-        browser.element((AppiumBy.ID, 'ru.litres.android:id/user_login')).should(have.text(f'{os.getenv("USER_LOGIN")}'))
+        mob_app.profile_page.check_profile_name(name=f'{os.getenv("USER_LOGIN")}')

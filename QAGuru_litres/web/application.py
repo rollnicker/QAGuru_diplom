@@ -1,5 +1,3 @@
-from selene import browser, be
-
 from QAGuru_litres.web.components.header_panel import HeaderPanel
 from QAGuru_litres.web.components.login import LoginWindow
 from QAGuru_litres.web.pages.cart_page import CartPage
@@ -21,15 +19,6 @@ class Application:
         self.catalog_page = CatalogPage()
         self.favourite_page = FavouritePage()
         self.cart_page = CartPage()
-
-    def open_page(self):
-        browser.open('')
-        return self
-
-    def close_banner(self):
-        if browser.element('.city-ask__wrapper').should(be.visible):
-            browser.element('.city-ask__wrapper').element('.close-button').click()
-        return self
 
 
 app = Application()
