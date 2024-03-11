@@ -113,7 +113,7 @@ Python * Pytest * Selene * (Selenium) * Selenoid * Jenkins * Allure Report * Tel
    Также можно написать комментарий, который будет отправлен в Telegram после окончания сборки
 
 - Нажмите build
-  <img src="resources/screens/build_paramters.png" width="450" height="250">
+  <img src="resources/screens/build_paramters.png">
 
 3. Когда тест будет пройден, можно посмотреть подрбности в отчете Allure  
    Для это нужно нажать на иконку allure отчета <img src="resources/logo/allure.png" width="20" height="20">
