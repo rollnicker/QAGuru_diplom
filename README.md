@@ -105,7 +105,7 @@ Python * Pytest * Selene * (Selenium) * Selenoid * Jenkins * Allure Report * Tel
 ### Через Jenkins
 
 Ссылка на [Ссылка на проект в Jenkins]("https://jenkins.autotests.cloud/job/Rolnik_QA_Guru_Diplom_litres/")  
-<img src="resources/screens/jenkins_allure.png" width="700" height="500">
+<img src="resources/screens/jenkins_allure.png">
 
 1. Нажмите на кнопку "build with parameters" (собрать с параметрами)  
    <img src="resources/screens/jenkins_inteface.png"  width="170" height="250">
@@ -113,7 +113,7 @@ Python * Pytest * Selene * (Selenium) * Selenoid * Jenkins * Allure Report * Tel
    Также можно написать комментарий, который будет отправлен в Telegram после окончания сборки
 
 - Нажмите build
-  <img src="resources/screens/build_paramters.png" width="350" height="170">
+  <img src="resources/screens/build_paramters.png">
 
 3. Когда тест будет пройден, можно посмотреть подрбности в отчете Allure  
    Для это нужно нажать на иконку allure отчета <img src="resources/logo/allure.png" width="20" height="20">
