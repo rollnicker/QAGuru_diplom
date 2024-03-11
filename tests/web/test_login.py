@@ -10,9 +10,9 @@ load_dotenv(dotenv_path=utils.file.abs_path_from_project('.env.credentials'))
 login: str = os.getenv("USER_LOGIN")
 password: str = os.getenv("USER_PASSWORD")
 
-wrong_login = "superverymega228kek@mail.ru"
-bad_login = '1qazsxwsdc'
-wrong_password = '123qwe'
+wrong_login = os.getenv("WRONG_LOGIN")
+bad_login = os.getenv("BAD_LOGIN")
+wrong_password = os.getenv("WRONG_PASSWORD")
 
 
 class TestLogin:
