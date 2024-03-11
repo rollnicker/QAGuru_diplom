@@ -25,9 +25,3 @@ class CartPage:
         self.empty_cart_module.should(have.text(text))
 
 
-'''
-эти методы не работают, так не понял почему
-        browser.all('[type="button"]').element_by(have.text('Перейти к покупке')).click()
-        browser.switch_to_next_tab() - cпросить как сделать переключение на это окно
-        browser.element('.buy_popup_tab_button').should(be.visible)
-'''

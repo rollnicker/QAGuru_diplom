@@ -20,10 +20,3 @@ def test_search_book(android_mobile_management):
         mob_app.search_page.open_searched_book()
     with step('Проверить, что название выбранной книги соответствует поиску'):
         mob_app.item_page.check_book_title(title='Мастер и Маргарита')
-
-
-'''
-Во время локального запуска, добавить этот шаг в самое начало теста
-    with step('закрыть крестик'):
-        browser.element((AppiumBy.ID, 'ru.litres.android:id/circleButtonSubscriptionPaywallClose')).click()
-'''
