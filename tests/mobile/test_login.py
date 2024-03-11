@@ -14,6 +14,7 @@ def test_login(android_mobile_management):
         mob_app.main_page.choose_language()
     with step('закрыть всплывающее окно выбора эротики'):
         mob_app.main_page.close_erotic_banner()
+
     with step('Перейти в раздел профиль'):
         mob_app.main_page.open_profile_page()
     with step('Нажать кнопку login'):
@@ -22,5 +23,6 @@ def test_login(android_mobile_management):
         mob_app.profile_page.enter_email(email=f'{os.getenv("USER_LOGIN")}')
     with step('Ввести пароль'):
         mob_app.profile_page.enter_password(password=f'{os.getenv("USER_PASSWORD")}')
+
     with step('Проверить успешный логин'):
         mob_app.profile_page.check_profile_name(name=f'{os.getenv("USER_LOGIN")}')
