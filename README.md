@@ -108,7 +108,7 @@ Python * Pytest * Selene * (Selenium) * Selenoid * Jenkins * Allure Report * Tel
 <img src="resources/screens/jenkins_allure.png" width="700" height="500">
 
 1. Нажмите на кнопку "build with parameters" (собрать с параметрами)  
-   <img src="resources/screens/jenkins_inteface.png" width="500" height="300">
+   <img src="resources/screens/jenkins_inteface.png">
 2. Выберите интерфейс тестирования. Доступны API, WEB или Mobile
    Также можно написать комментарий, который будет отправлен в Telegram после окончания сборки
 
