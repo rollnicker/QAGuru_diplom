@@ -105,10 +105,10 @@ Python * Pytest * Selene * (Selenium) * Selenoid * Jenkins * Allure Report * Tel
 ### Через Jenkins
 
 Ссылка на [Ссылка на проект в Jenkins]("https://jenkins.autotests.cloud/job/Rolnik_QA_Guru_Diplom_litres/")  
-<img src="resources/screens/jenkins_allure.png">
+<img src="resources/screens/jenkins_allure.png"  width="800" height="500">
 
 1. Нажмите на кнопку "build with parameters" (собрать с параметрами)  
-   <img src="resources/screens/jenkins_inteface.png"  width="170" height="250">
+   <img src="resources/screens/jenkins_inteface.png"  width="190" height="270">
 2. Выберите интерфейс тестирования. Доступны API, WEB или Mobile
    Также можно написать комментарий, который будет отправлен в Telegram после окончания сборки
 
