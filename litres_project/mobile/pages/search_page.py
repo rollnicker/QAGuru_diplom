@@ -1,3 +1,4 @@
+import allure
 from appium.webdriver.common.appiumby import AppiumBy
 from selene import browser
 
@@ -10,11 +11,14 @@ class SearchPage:
         self.favourite_buttons_list = browser.all((AppiumBy.ID, 'ru.litres.android:id/imageViewFavorite'))
 
     def search_book(self, name):
-        self.search_window.type(name)
-        self.suggest_list[0].click()
+        with allure.step(f'Ввести название книги "{name}" в поисковую строку'):
+            self.search_window.type(name)
+            self.suggest_list[0].click()
 
+    @allure.step('Открыть первую книгу')
     def open_searched_book(self):
         self.searched_books_list[0].click()
 
+    @allure.step('Добавить первую книгу из списка в избранное')
     def add_searched_book_to_favourites(self):
         self.favourite_buttons_list[0].click()

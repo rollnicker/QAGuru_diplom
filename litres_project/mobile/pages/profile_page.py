@@ -1,3 +1,4 @@
+import allure
 from appium.webdriver.common.appiumby import AppiumBy
 from selene import browser, have
 
@@ -10,16 +11,20 @@ class ProfilePage:
         self.password_edit = browser.element((AppiumBy.ID, 'ru.litres.android:id/passwordEditText'))
         self.profile_name = browser.element((AppiumBy.ID, 'ru.litres.android:id/user_login'))
 
+    @allure.step('Нажать кнопку "login"')
     def open_login(self):
         self.login_button.click()
 
     def enter_email(self, email):
-        self.login_edit.type(email)
-        self.login_continue_button.click()
+        with allure.step(f'Ввести email: {email}'):
+            self.login_edit.type(email)
+            self.login_continue_button.click()
 
     def enter_password(self, password):
-        self.password_edit.type(password)
-        self.login_continue_button.click()
+        with allure.step(f'Ввести email: {password}'):
+            self.password_edit.type(password)
+            self.login_continue_button.click()
 
     def check_profile_name(self, name):
-        self.profile_name.should(have.text(name))
+        with allure.step(f'Проверить что логин {name} совпадает с введенным'):
+            self.profile_name.should(have.text(name))
