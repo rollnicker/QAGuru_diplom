@@ -273,6 +273,15 @@ appium --base-path /wd/hub
 
 ---
 
+### Интеграция с Jira
+
+<p align="center">
+<img src="resources/screens/jira_tests.png">
+</p>
+
+---
+
+
 #### При прохождении тестов через Browserstack можно получить видео прохождения тестов
 
 Пример:
