@@ -57,8 +57,6 @@ class Config(BaseModel):
                 },
             )
 
-        print(self.device_name)
-
         return options
 
 
