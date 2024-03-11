@@ -262,7 +262,7 @@ appium --base-path /wd/hub
 > AllureTestOps</a>
 
 <p align="center">
-<img src="resources/screens/test_ops_dashboard.png" width="800" height="500">
+<img src="resources/screens/test_ops_dashboard.png">
 </p>
 
 #### Cписок тест кейсов проекта
