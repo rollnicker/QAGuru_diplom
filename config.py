@@ -4,7 +4,7 @@ from appium.options.android import UiAutomator2Options
 from dotenv import load_dotenv
 from pydantic import BaseModel
 
-from QAGuru_litres import utils
+from litres_project import utils
 
 
 class Config(BaseModel):

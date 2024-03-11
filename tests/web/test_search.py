@@ -1,29 +1,27 @@
 import allure
-from allure_commons._allure import step
 
-from QAGuru_litres.web.application import app
+from litres_project.web.application import app
 
 
-@allure.epic('Search')
-@allure.tag('web', 'positive')
-@allure.title('Поиск книги')
-def test_search_book(setup_browser):
-    with step('Ввести название в окно поиска'):
+class TestSearch:
+    @allure.epic('Search')
+    @allure.tag('web', 'positive')
+    @allure.title('Поиск книги')
+    def test_search_book(self):
+        app.open_page()
+
         app.header_panel.search_book('Мастер и маргарита')
 
-    with step("открыть книгу в результатах поиска"):
         app.search_page.open_searched_item('Мастер и Маргарита')
 
-    with step("проверить что название книги соответствует поиску"):
         app.item_page.check_book_title('Мастер и Маргарита')
 
+    @allure.epic('Search')
+    @allure.tag('web', 'negative')
+    @allure.title('Поиск книги с неправильным названием')
+    def test_wrong_search(self):
+        app.open_page()
 
-@allure.epic('Search')
-@allure.tag('web', 'negative')
-@allure.title('Поиск книги с неправильным названием')
-def test_wrong_search(setup_browser):
-    with step("Открыть форму логина"):
         app.header_panel.search_book('dgfsergsvers')
 
-    with step("найти книгу в каталоге"):
         app.search_page.check_empty_search_message('ничего не найдено')

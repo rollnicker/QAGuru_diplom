@@ -7,7 +7,7 @@ from appium import webdriver
 from dotenv import load_dotenv
 from selene import browser, support
 
-from QAGuru_litres import utils
+from litres_project import utils
 
 
 def pytest_addoption(parser):

@@ -1,7 +1,7 @@
 import allure
 from allure_commons._allure import step
 
-from QAGuru_litres.mobile.application import mob_app
+from litres_project.mobile.application import mob_app
 
 
 @allure.epic('Favourites')

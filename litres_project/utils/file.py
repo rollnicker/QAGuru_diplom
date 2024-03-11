@@ -1,9 +1,9 @@
 def abs_path_from_project(relative_path: str):
-    import QAGuru_litres
+    import litres_project
     from pathlib import Path
 
     return (
-        Path(QAGuru_litres.__file__)
+        Path(litres_project.__file__)
         .parent.parent.joinpath(relative_path)
         .absolute()
         .__str__()

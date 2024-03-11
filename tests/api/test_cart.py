@@ -2,8 +2,8 @@ import allure
 from allure_commons._allure import step
 from jsonschema import validate
 
-from QAGuru_litres.utils.logging import put_litress, get_litress
-from QAGuru_litres.utils.open_schemas import load_schema
+from litres_project.utils.logging import put_litress, get_litress
+from litres_project.utils.open_schemas import load_schema
 
 ADD_TO_CART_URL = "/cart/arts/add"
 CART_URL = '/cart/status'

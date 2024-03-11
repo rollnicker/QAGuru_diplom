@@ -4,9 +4,9 @@ import allure
 from dotenv import load_dotenv
 from jsonschema import validate
 
-from QAGuru_litres import utils
-from QAGuru_litres.utils.logging import post_litress
-from QAGuru_litres.utils.open_schemas import load_schema
+from litres_project import utils
+from litres_project.utils.logging import post_litress
+from litres_project.utils.open_schemas import load_schema
 
 load_dotenv(dotenv_path=utils.file.abs_path_from_project('.env.credentials'))
 login: str = os.getenv("USER_LOGIN")

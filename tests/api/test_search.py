@@ -1,8 +1,8 @@
 import allure
 from jsonschema import validate
 
-from QAGuru_litres.utils.logging import get_litress
-from QAGuru_litres.utils.open_schemas import load_schema
+from litres_project.utils.logging import get_litress
+from litres_project.utils.open_schemas import load_schema
 
 @allure.epic('Search')
 @allure.tag('api', 'positive')

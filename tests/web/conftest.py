@@ -6,7 +6,7 @@ from selene import browser
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
-from QAGuru_litres import utils
+from litres_project.utils import allure_attach
 
 
 def pytest_addoption(parser):
@@ -24,7 +24,7 @@ def load_env():
 DEFAULT_BROWSER_VERSION = "100.0"
 
 
-@pytest.fixture(scope='function')
+@pytest.fixture(scope='function', autouse=True)
 def setup_browser(request):
     browser_version = request.config.getoption('--browser_version')
     browser_version = browser_version if browser_version != "" else DEFAULT_BROWSER_VERSION
@@ -54,13 +54,12 @@ def setup_browser(request):
     browser.config.window_width = 1400
     browser.config.timeout = 8.0
     browser.config.base_url = 'https://www.litres.ru/'
-    browser.open('')
 
     yield browser
 
-    utils.allure_attach.add_screenshot(browser)
-    utils.allure_attach.add_logs(browser)
-    utils.allure_attach.add_html(browser)
-    utils.allure_attach.add_video(browser)
+    allure_attach.add_screenshot(browser)
+    allure_attach.add_logs(browser)
+    allure_attach.add_html(browser)
+    allure_attach.add_video(browser)
 
     browser.quit()

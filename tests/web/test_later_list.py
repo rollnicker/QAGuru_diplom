@@ -1,39 +1,28 @@
 import allure
-from allure_commons._allure import step
 
-from QAGuru_litres.web.application import app
+from litres_project.web.application import app
 
 
 @allure.epic('Favourites')
 @allure.tag('web', 'positive')
 @allure.title('Добавление книги в отложенные, после удаления из корзины')
-def test_add_to_favourite_from_delete_window(setup_browser):
-    with step('Открыть категорию каталога'):
-        app.header_panel.open_catalog_category("Легкое чтение")
+def test_add_to_favourite_from_delete_window():
+    app.open_page()
 
-    with step("выбрать книгу из каталога"):
-        app.catalog_page.open_book_from_catalog('Туман. Полное издание')
+    app.header_panel.open_catalog_category("Легкое чтение")
 
-    with step('Нажать кнопку "добавить в корзину"'):
-        app.item_page.add_book_to_cart()
+    app.catalog_page.open_book_from_catalog('Туман. Полное издание')
 
-    with step("открыть коризну"):
-        app.item_page.open_cart()
+    app.item_page.add_book_to_cart()
 
-    with step('Проверить наличие книги в корзине'):
-        app.cart_page.check_title('Туман. Полное издание')
+    app.item_page.open_cart()
 
-    with step('Удалить из корзины'):
-        app.cart_page.click_delete_button()
+    app.cart_page.check_title('Туман. Полное издание')
 
-    with step('Добавить в отложенные'):
-        app.cart_page.add_to_later_list()
+    app.cart_page.click_delete_button()
 
-    with step('Проверить что счетчик корзины пустой'):
-        app.header_panel.check_count_is_empty()
+    app.cart_page.add_to_later_list()
 
-    with step('Открыть отложенные'):
-        app.header_panel.open_liked_books()
+    app.header_panel.open_liked_books()
 
-    with step('Проверить что книга отображается в отложенных'):
-        app.favourite_page.check_first_liked_book_title('Туман. Полное издание')
+    app.favourite_page.check_first_liked_book_title('Туман. Полное издание')

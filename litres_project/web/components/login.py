@@ -1,3 +1,4 @@
+import allure
 from selene import browser, have
 
 
@@ -10,19 +11,24 @@ class LoginWindow:
         self.free_email_message = browser.element(
             '.AuthContent-module__emailRegistrationContainer__freeEmailMessage_3np-O')
 
+    @allure.step('Ввести логин')
     def fill_login(self, email):
         self.email_input.type(email)
         self.continue_button.click()
 
+    @allure.step('Ввести логин и пароль')
     def fill_login_and_password(self, email, password):
         self.email_input.type(email).submit()
         self.password_input.type(password).submit()
 
+    @allure.step('Проверить что появилось сообщение "Неверное сочетание логина и пароля"')
     def check_wrong_password_message(self):
         self.wrong_password_warning.should(have.text('Неверное сочетание логина и пароля'))
 
+    @allure.step('Проверить что появилось сообщение "Адрес свободен для регистрации"')
     def check_free_email_message(self):
         self.free_email_message.should(have.text('Адрес свободен для регистрации'))
 
+    @allure.step('Проверить что появилось сообщение "Пользователь не найден, чтобы зарегистрироваться укажите почту"')
     def check_bad_login_message(self):
         self.wrong_password_warning.should(have.text('Пользователь не найден, чтобы зарегистрироваться укажите почту'))
