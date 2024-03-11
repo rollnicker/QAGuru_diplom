@@ -251,7 +251,9 @@ appium --base-path /wd/hub
 <p align="center">
 <img src="resources/screens/allure_tests.png" width="800" height="500">
 </p>
+
 - Можно посмотреть запись прохождения теста  
+
 <p align="center">
 <img src="resources/screens/litres_test_web.gif" width="800" height="500">
 </p>
