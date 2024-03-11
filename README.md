@@ -261,6 +261,10 @@ appium --base-path /wd/hub
 > <a target="_blank" href="https://allure.autotests.cloud/project/4124/dashboards">Ссылка на проект в
 > AllureTestOps</a>
 
+<p align="center">
+<img src="resources/screens/test_ops_dashboard.png" width="800" height="500">
+</p>
+
 #### Cписок тест кейсов проекта
 
 ![This is an image](resources/screens/Allure-test-cases.png)
