@@ -167,3 +167,4 @@ cython_debug/
 /tests/mobile/android/allure-results/
 /tests/web/allure-results/
 /allure-results/
+/allure-report/

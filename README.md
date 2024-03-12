@@ -304,3 +304,15 @@ appium --base-path /wd/hub
 <p align="center">
 <img src="resources/logo/telegram.png" width="290" height="300">
 </p>
+
+---
+
+### Для запуска нотификаций локально нужно сделать следующие действия
+1. Выполнить команду в консоли - создание папки allure-report
+  ```zsh
+allure generate allure-results
+  ```
+2. Запустить скрипт. Для его выполнения нужно установить Java на компьютер
+  ```zsh
+java "-DconfigFile=notifications/config.json" -jar notifications/allure-notifications-4.6.1.jar
+  ```
