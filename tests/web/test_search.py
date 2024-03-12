@@ -11,7 +11,6 @@ class TestSearch:
         app.open_page()
 
         app.header_panel.search_book('Мастер и маргарита')
-
         app.search_page.open_searched_item('Мастер и Маргарита')
 
         app.item_page.check_book_title('Мастер и Маргарита')

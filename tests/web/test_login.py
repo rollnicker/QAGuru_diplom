@@ -23,9 +23,7 @@ class TestLogin:
         app.open_page()
 
         app.header_panel.click_login_button()
-
         app.login_window.fill_login_and_password(email=login, password=password)
-
         app.header_panel.click_profile_button()
 
         app.profile_page.avatar_should_have_name('Борис Рольник')
@@ -37,7 +35,6 @@ class TestLogin:
         app.open_page()
 
         app.header_panel.click_login_button()
-
         app.login_window.fill_login_and_password(email=login, password=wrong_password)
 
         app.login_window.check_wrong_password_message()
@@ -49,9 +46,7 @@ class TestLogin:
         app.open_page()
 
         app.header_panel.click_login_button()
-
         app.login_window.fill_login(email=wrong_login)
-
         app.login_window.check_free_email_message()
 
     @allure.epic('Login')
@@ -61,7 +56,5 @@ class TestLogin:
         app.open_page()
 
         app.header_panel.click_login_button()
-
         app.login_window.fill_login(email=bad_login)
-
         app.login_window.check_bad_login_message()
